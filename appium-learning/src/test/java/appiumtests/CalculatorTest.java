@@ -26,6 +26,7 @@ public class CalculatorTest {
         options.setNoReset(true);
         options.setFullReset(false);
 
+
         URL url = new URL("http://127.0.0.1:4723");
 
         driver = new AndroidDriver(url, options);
