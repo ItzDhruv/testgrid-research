@@ -12,7 +12,7 @@ import java.time.Duration;
 
 public class AlaramTest {
     public static void alaramTest() throws Exception{
-        UiAutomator2Options options = new UiAutomator2Options();
+            UiAutomator2Options options = new UiAutomator2Options();
 
         options.setDeviceName("OPPO A57");
         options.setUdid("IRBIGI7DWWCEPVWS");
@@ -29,19 +29,7 @@ public class AlaramTest {
         URL url = new URL("http://127.0.0.1:4723");
 
         AppiumDriver driver = new AndroidDriver(url, options);
-//        Thread.sleep(7000);
-//        try{
-//            Thread.sleep(2000);
-//        } catch (Exception e) {
-//            throw new RuntimeException(e);
-//        }
-//        try {
-//            driver.findElement(AppiumBy.id(
-//                    "com.android.permissioncontroller:id/permission_allow_button"
-//            )).click();
-//        } catch (Exception ignored) {}
 
-//        driver.findElement(By.id("com.whatsapp:id/search_text")).click();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 //
          // set alarm
@@ -109,5 +97,8 @@ public class AlaramTest {
 
     System.out.println("Succes without error");
     }
+
+
+//    public static void alarmTest
 }
 
