@@ -5,9 +5,12 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.URL;
+import java.time.Duration;
 
 class DialerTest {
 
@@ -62,46 +65,52 @@ class DialerTest {
 
         AndroidDriver driver = new AndroidDriver(url, options);
 
-        Thread.sleep(3000);
 
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         // With all locator
 
         // byID             ------------------------------------------------------------------
 
         try {
-            driver.findElement(By.id("com.android.dialer:id/fab")).click();
+            wait.until(
+                    ExpectedConditions.elementToBeClickable(By.id("com.android.dialer:id/fab"))
+            )
+                    .click();
+
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
         // by access id      ------------------------------------------------------------------
 
-        try {
-            driver.findElement(AppiumBy.accessibilityId("key pad")).click();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-
-        // by android amutor        ------------------------------------------------------------------
-
-        try {
-            driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"com.android.dialer:id/fab\")")).click();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-
-        //   by x-path             ------------------------------------------------------------------
+//        try {
+//            driver.findElement(AppiumBy.accessibilityId("key pad")).click();
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
 //
-        try {
-            driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"key pad\"]")).click();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-
+//
+//        // by android amutor        ------------------------------------------------------------------
+//
+//        try {
+//            driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"com.android.dialer:id/fab\")")).click();
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//
+//        //   by x-path             ------------------------------------------------------------------
+////
+//        try {
+//            driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"key pad\"]")).click();
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//
 
 
 

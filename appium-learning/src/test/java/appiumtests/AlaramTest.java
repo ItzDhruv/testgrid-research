@@ -31,6 +31,7 @@ public class AlaramTest {
         AppiumDriver driver = new AndroidDriver(url, options);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        
 //
          // set alarm
         wait.until(ExpectedConditions.elementToBeClickable(
