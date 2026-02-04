@@ -1,0 +1,15 @@
+Wireless phone adb coonect 
+
+Note : both phone and computer connect with same waifi network
+
+On Phone:
+
+Settings → Developer Options
+Turn ON → Wireless Debugging
+Open Wireless Debugging
+Tap → Pair device with pairing code
+
+On Pc Terminal :
+
+
+
