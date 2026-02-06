@@ -11,5 +11,5 @@ Tap → Pair device with pairing code
 
 On Pc Terminal :
 
-
-
+adb pair IP:Port (pairing code valo port nakhvo)
+adb connect IP:Port (main port nakhvo)

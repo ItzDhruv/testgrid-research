@@ -6,9 +6,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Multi-Threading" />
-        <module name="Selenium-testing" />
-        <module name="ChromeClearTest" />
         <module name="Socket-learning" />
       </profile>
     </annotationProcessing>

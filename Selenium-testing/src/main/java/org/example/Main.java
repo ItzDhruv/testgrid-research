@@ -10,9 +10,9 @@ public class Main extends LoginTest {
 
     public static void main(String[] args) {
 
-        LoginTest loginTest = new LoginTest();
-        loginTest.valid_login_test();
-        loginTest.invalid_login_test();
+//        LoginTest loginTest = new LoginTest();
+//        loginTest.valid_login_test();
+//        loginTest.invalid_login_test();
 
 
 

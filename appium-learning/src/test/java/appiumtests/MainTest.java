@@ -9,7 +9,7 @@ public class MainTest {
         try {
 //            openCalculator();
 //            Thread.sleep(4000);
-            dialerTest();
+
 //            alaramTest();
         } catch (Exception e) {
             System.out.println(e);

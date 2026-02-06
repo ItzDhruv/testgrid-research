@@ -19,7 +19,7 @@
 
             UiAutomator2Options options = new UiAutomator2Options();
             options.setDeviceName("OPPO A57");
-            options.setUdid("192.168.31.93:42829");
+            options.setUdid("192.168.31.93:40173");
             options.setPlatformName("Android");
             options.setPlatformVersion("14");
             options.setAutomationName("UiAutomator2");
@@ -51,6 +51,7 @@
                             AppiumBy.androidUIAutomator("new UiSelector().text(\"App management\")")
                     )
             ).click();
+
 
 
             wait.until(
