@@ -7,7 +7,7 @@ public class Main {
 
         myThread t = new myThread();
         World world = new World();
-        Thread t2 = new Thread(world);  //  implements Runnnable not make class thread we pass that instance at Thread to make that class thread
+        Thread t2 = new Thread(world);  //  implements Runnable not make class thread we pass that instance at Thread to make that class thread
         t2.run();
 
 
@@ -41,6 +41,5 @@ public class Main {
      public void run(int i) {
          System.out.println("Wait for second  : "+i);
      }
-
 
  }
