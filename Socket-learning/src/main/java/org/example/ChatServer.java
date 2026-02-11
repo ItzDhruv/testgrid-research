@@ -5,7 +5,6 @@ import java.net.*;
 import java.util.*;
 
 public class ChatServer {
-
     // store all connected clients
     static Vector<ClientHandler> clients = new Vector<>();
 
@@ -39,10 +38,10 @@ public class ChatServer {
     }
 }
 class ClientHandler implements Runnable {
-    String userName;
-    Socket socket;
-    BufferedReader in;
-    PrintWriter out;
+            String userName;
+            Socket socket;
+            BufferedReader in;
+            PrintWriter out;
 
     ClientHandler(Socket socket) {
         try {
@@ -51,7 +50,7 @@ class ClientHandler implements Runnable {
             out = new PrintWriter(socket.getOutputStream(), true);
             this.userName = in.readLine();
             System.out.println("Welcome to the chat : "+userName);
-            ChatServer.broadcast(userName + " joined the chat", this);
+            ChatServer.broadcast(userName + " joined - the chat", this);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -62,7 +61,7 @@ class ClientHandler implements Runnable {
         try {
             String message;
             while ((message = in.readLine()) != null) {
-                System.out.println(" Received message: " + message);
+                System.out.println(userName +" message: " + message);
                 ChatServer.broadcast(message, this);
             }
         } catch (Exception e) {
