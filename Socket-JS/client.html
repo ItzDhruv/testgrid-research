@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Socket Client</title>
+</head>
+<body>
+  <h2>Socket.IO Client</h2>
+  
+  <button onclick="sendMessage()">Send Message to Server</button>
+  <input type="text" id="messageInput" placeholder="Type a message...">
+  <button onclick="sendTextMessage()">Send messgae</button>
+  <button onclick="enterRoom()">Enter Room and get Socket Id</button>
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <script>
+    const socket = io("http://localhost:2000");
+
+    socket.on("connect", () => {
+      console.log("Connected to server");
+      console.log("Socket ID:", socket.id);
+    });
+
+  function sendMessage() {
+      socket.emit("message", "Hello from the client!");
+      console.log("Message sent to server");
+    }
+
+    function sendTextMessage() {
+      const message = document.getElementById("messageInput").value;
+      socket.emit("text", message);
+      // console.log("Message sent to server:", message);
+     
+    }
+
+    function enterRoom() {
+      socket.on("Room1", (data) => {
+        console.log("Room1 data:", data);
+      });
+      socket.emit("enterRoom", "Requesting to enter Room-1");
+    }
+
+    socket.on("chatstream", (data, socketId) => {
+    console.log(" (" + socketId + ") : " + data);    });
+
+    socket.on("message", (data) => {
+      console.log("Received message from server:", data);
+    });
+
+    socket.on("disconnect", () => {
+      console.log("Disconnected from server");
+    });
+  </script>
+</body>
+</html>
+ 
