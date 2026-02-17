@@ -1,4 +1,4 @@
-package room;
+package org.example.room;
 
 
 import java.util.Set;

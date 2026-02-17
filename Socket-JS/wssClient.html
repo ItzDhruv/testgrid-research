@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WSS Client</title>
+</head>
+<body>
+
+<button onclick="sendMessage()">Send Message</button>
+
+<script>
+
+const socket = new WebSocket("wss://localhost:3000");
+
+socket.onopen = () => {
+  console.log("Connected");
+};
+
+socket.onmessage = (event) => {
+  console.log(event.data);
+};
+
+socket.onerror = (err) => {
+  console.log("Error:", err);
+};
+
+socket.onclose = () => {
+  console.log("Disconnected");
+};
+
+function sendMessage() {a
+
+  socket.send("Hello from client");
+
+  console.log("Message sent");
+}
+
+</script>
+
+</body>
+</html>

@@ -10,7 +10,6 @@ public class ChatClient {
     public static void main(String[] args) {
         try {
             Socket socket = new Socket("localhost", 5000);
-
             BufferedReader serverIn = new BufferedReader(
                     new InputStreamReader(socket.getInputStream())
             );
@@ -33,7 +32,8 @@ public class ChatClient {
                 try {
                     String msg;
                     while ((msg = serverIn.readLine()) != null) {
-                        System.out.println("\nFriend: " + msg);
+                        System.out.println(msg);
+                        System.out.println("Thread running");
                     }
                 } catch (Exception e) {}
             }).start();
@@ -43,6 +43,7 @@ public class ChatClient {
             while (true) {
                 message = userInput.readLine();
                 serverOut.println(message);
+                System.out.println("Infinite loop running");
             }
 
         } catch (Exception e) {

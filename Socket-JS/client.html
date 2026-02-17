@@ -30,6 +30,9 @@
       // console.log("Message sent to server:", message);
      
     }
+    socket.on("dailyNews", (data) => {
+      console.log("Daily News:", data);
+    });
 
     function enterRoom() {
       socket.on("Room1", (data) => {
@@ -37,6 +40,8 @@
       });
       socket.emit("enterRoom", "Requesting to enter Room-1");
     }
+    socket.leave("Room-1");
+
 
     socket.on("chatstream", (data, socketId) => {
     console.log(" (" + socketId + ") : " + data);    });
@@ -51,4 +56,3 @@
   </script>
 </body>
 </html>
- 

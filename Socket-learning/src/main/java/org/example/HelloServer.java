@@ -12,18 +12,15 @@ public class HelloServer {
 
         ServerSocket serverSocket = new ServerSocket(5000);
         System.out.println("Waiting for client");
+
         while(true){
             Socket socket = serverSocket.accept();
             ++counter;
             System.out.println("New client meetup : "+counter);
             BufferedReader in =  new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            in.readLine();
+            String msg = in.readLine();
+            System.out.println("message is :" +msg);
         }
-
-
-
-
-
     }
 
 }

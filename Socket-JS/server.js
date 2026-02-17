@@ -33,6 +33,8 @@ io.on("connection", (socket) => {
     socket.emit("Room1", "Welcome to Room-1! Your Socket ID is: " + socket.id);
   });
 
+  io.to(socket.id).emit("dailyNews", "Server maybe shutting down Today!"); // To send message to all the clients in the room
+
 });
 
 

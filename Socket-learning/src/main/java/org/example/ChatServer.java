@@ -11,7 +11,7 @@ public class ChatServer {
     public static void main(String[] args) {
         try {
             ServerSocket serverSocket = new ServerSocket(5000);
-            System.out.println(" Chat Server started on port 5000");
+            System.out.println("Chat Server started on port 5000");
 
             while (true) {
                 Socket socket = serverSocket.accept();
@@ -19,7 +19,6 @@ public class ChatServer {
 
                 ClientHandler client = new ClientHandler(socket);
                 clients.add(client);
-
                 new Thread(client).start();
             }
 
@@ -32,11 +31,12 @@ public class ChatServer {
     static void broadcast(String message, ClientHandler sender) {
         for (ClientHandler client : clients) {
             if (client != sender) {
-                client.sendMessage(message);
+                client.sendMessage(sender.userName, message);
             }
         }
     }
 }
+
 class ClientHandler implements Runnable {
             String userName;
             Socket socket;
@@ -69,7 +69,7 @@ class ClientHandler implements Runnable {
         }
     }
 
-    void sendMessage(String msg) {
-        out.println(msg);
+    void sendMessage(String user_name,String msg) {
+        out.println("("+user_name+") : "+msg);
     }
 }
